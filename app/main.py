@@ -22,7 +22,7 @@ class Dictionary:
         if self.size / self.capacity > 0.75:
             self._resize()
 
-    def __getitem__(self, key: int) -> None:
+    def __getitem__(self, key: int) -> int:
         index = self._get_index(key)
         bucket = self.hash_list[index]
 
@@ -42,7 +42,7 @@ class Dictionary:
                 return
         raise KeyError(f"Key Element {key} not found.")
 
-    def __len__(self) -> None:
+    def __len__(self) -> int:
         return self.size
 
     def _resize(self) -> None:
